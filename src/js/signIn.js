@@ -4,15 +4,13 @@ let sendingData = function () {
         let resultObj = {}
         let data = $('input, select')
         for (let i = 0; i < data.length; i++) {
-            let element = data[i]
-            let name = element.name
-            let value = element.value
-            console.log(element.value)
+            let element = data[i],
+            name = element.name,
+            value = element.value
             if (name) {
                 resultObj[name] = value
             }
         }
-        console.log(resultObj)
         return JSON.stringify(resultObj)
     }
     function validError(jsonObject) {
