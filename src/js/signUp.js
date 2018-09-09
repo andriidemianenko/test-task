@@ -1,5 +1,5 @@
+"use strict"
 let sendingData = function () {
-    "use strict"
     let registrationForm = $('#registrationForm')
     function toJSONstring(form) {
         let resultObj = {}

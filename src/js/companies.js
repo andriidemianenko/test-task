@@ -1,5 +1,5 @@
+"use strict"
 let renderCompAndPartners = function () {
-    "use strict"
      function renderCompaniesAmount(allCompanies) {
          $('#companiesAmount').text(allCompanies.length)
      }
