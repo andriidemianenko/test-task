@@ -14,13 +14,13 @@ let sendData = function () {
         }
         return JSON.stringify(resultObj)
     }
-    function validError(error) {
+    function handleValidationError(error) {
         let message = error.message,
         field = error.field,
         status = error.status
         alert('Erorr message: ' + message + '\nField: ' + field + '\nStatus: ' + status)
     }
-    function serverError(error) {
+    function handleServerError(error) {
         let message = error.message,
         status = error.status
         alert('Error message: ' + message + '\nStatus: ' + status)
@@ -34,12 +34,12 @@ let sendData = function () {
             url: registrationForm.attr('action'),
             data: json,
             success: function (data) {
-                validError(data)
+                handleValidationError(data)
                 $(location).attr('href', './companies.html')
             },
             error: function (jqXHR, textStatus) {
                 let jsonErrorObj = JSON.parse(jqXHR.responseText)
-                serverError(jsonErrorObj)
+               handleServerError(jsonErrorObj)
             }
 
         })

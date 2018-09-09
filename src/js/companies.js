@@ -13,7 +13,7 @@ let renderCompAndPartners = function () {
          let listOfAllCompanies = $('#allCompanies'),
          companiesClass = 'list-group-item list-group-item-action'
          allCompanies.forEach((element) => {
-            createElement(listOfAllCompanies, 'a', companiesClass, element['name'])
+            createElement(listOfAllCompanies, 'a', companiesClass, element.name)
          }) 
      }
      function renderPartners(allCompanies) {
@@ -22,14 +22,14 @@ let renderCompAndPartners = function () {
                  $('.partners-container').show()
                  $('#partners').empty()
                  allCompanies.forEach((company) => {
-                     let partners = company['partners']
-                     if (this.innerHTML == company['name']) {// render partners
+                     let partners = company.partners
+                     if (this.innerHTML == company.name) {// render partners
                          partners.forEach((partner) => {
                              let partnerElem = document.createElement('a')
                              partnerElem.className = 'list-group-item list-group-item-action'
-                             partnerElem.textContent = partner['name']
+                             partnerElem.textContent = partner.name
                              let partnerPercClass =  'partner-percentage'
-                             createElement(partnerElem, 'span', partnerPercClass, partner['value'])// show partner's percentage
+                             createElement(partnerElem, 'span', partnerPercClass, partner.value)// show partner's percentage
                              $('#partners').append(partnerElem)
                          })
                      }
