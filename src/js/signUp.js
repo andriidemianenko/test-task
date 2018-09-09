@@ -14,15 +14,15 @@ let sendingData = function () {
         }
         return JSON.stringify(resultObj)
     }
-    function validError(jsonObject) {
-        let message = jsonObject['message'],
-        field = jsonObject['field'],
-        status = jsonObject['status']
+    function validError(error) {
+        let message = error.message,
+        field = error.field,
+        status = error.status
         alert('Erorr message: ' + message + '\nField: ' + field + '\nStatus: ' + status)
     }
-    function serverError(jsonObject) {
-        let message = jsonObject['message'],
-        status = jsonObject['status']
+    function serverError(error) {
+        let message = error.message,
+        status = error.status
         alert('Error message: ' + message + '\nStatus: ' + status)
     }
 

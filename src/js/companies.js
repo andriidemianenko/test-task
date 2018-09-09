@@ -1,7 +1,7 @@
 let renderCompAndPartners = function () {
     "use strict"
-     function renderCompaniesAmount(jsonObject) {
-         $('#companiesAmount').text(jsonObject['list'].length)
+     function renderCompaniesAmount(allCompanies) {
+         $('#companiesAmount').text(allCompanies.length)
      }
      function createElement(parent, tagName, className, value) {
          let element = document.createElement(tagName)
@@ -9,17 +9,15 @@ let renderCompAndPartners = function () {
          element.textContent = value
          parent.append(element)
      }
-     function renderListOfComanies(jsonObject) {
-         let allCompanies = jsonObject['list']
+     function renderListOfComanies(allCompanies) {
          let listOfAllCompanies = $('#allCompanies')
          let companiesClass = 'list-group-item list-group-item-action'
          allCompanies.forEach((element) => {
             createElement(listOfAllCompanies, 'a', companiesClass, element['name'])
          }) 
      }
-     function renderPartners(jsonObject) {
+     function renderPartners(allCompanies) {
          $('.list-group-item').each(function (data) {
-             let allCompanies = jsonObject['list']
              $(this).on('click', function () {
                  $('.partners-container').show()
                  $('#partners').empty()
@@ -44,9 +42,10 @@ let renderCompAndPartners = function () {
          url: 'http://codeit.pro/codeitCandidates/serverFrontendTest/company/getList',
          dataType: 'json',
          success: function (data) {
-             renderCompaniesAmount(data)
-             renderListOfComanies(data)
-             renderPartners(data)
+             let allCompanies = data.list
+             renderCompaniesAmount(allCompanies)
+             renderListOfComanies(allCompanies)
+             renderPartners(allCompanies)
          },
          beforeSend : function() {
              $('.list-group, .total-companies').hide()
