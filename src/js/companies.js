@@ -13,9 +13,9 @@ let renderCompAndPartners = function () {
          let allCompanies = jsonObject['list']
          let listOfAllCompanies = $('#allCompanies')
          let companiesClass = 'list-group-item list-group-item-action'
-         for (let i = 0; i < allCompanies.length; i++) {
-             createElement(listOfAllCompanies, 'a', companiesClass, allCompanies[i]['name'])
-         }
+         allCompanies.forEach((element) => {
+            createElement(listOfAllCompanies, 'a', companiesClass, element['name'])
+         }) 
      }
      function renderPartners(jsonObject) {
          $('.list-group-item').each(function (data) {
@@ -23,19 +23,19 @@ let renderCompAndPartners = function () {
              $(this).on('click', function () {
                  $('.partners-container').show()
                  $('#partners').empty()
-                 for (let i = 0; i < allCompanies.length; i++) {
-                     let partners = allCompanies[i]['partners']
-                     if (this.innerHTML == allCompanies[i]['name']) {// render partners
-                         for (let k = 0; k < partners.length; k++) {
-                             let partner = document.createElement('a')
-                             partner.className = 'list-group-item list-group-item-action'
-                             partner.textContent = partners[k]['name']
+                 allCompanies.forEach((company) => {
+                     let partners = company['partners']
+                     if (this.innerHTML == company['name']) {// render partners
+                         partners.forEach((partner) => {
+                             let partnerElem = document.createElement('a')
+                             partnerElem.className = 'list-group-item list-group-item-action'
+                             partnerElem.textContent = partner['name']
                              let partnerPercClass =  'partner-percentage'
-                             createElement(partner, 'span', partnerPercClass, partners[k]['value'])// show partner's percentage
-                             $('#partners').append(partner)
-                         }
+                             createElement(partnerElem, 'span', partnerPercClass, partner['value'])// show partner's percentage
+                             $('#partners').append(partnerElem)
+                         })
                      }
-                 }
+                 })
              })
          })
      }
