@@ -10,8 +10,8 @@ let renderCompAndPartners = function () {
          parent.append(element)
      }
      function renderListOfComanies(allCompanies) {
-         let listOfAllCompanies = $('#allCompanies')
-         let companiesClass = 'list-group-item list-group-item-action'
+         let listOfAllCompanies = $('#allCompanies'),
+         companiesClass = 'list-group-item list-group-item-action'
          allCompanies.forEach((element) => {
             createElement(listOfAllCompanies, 'a', companiesClass, element['name'])
          }) 

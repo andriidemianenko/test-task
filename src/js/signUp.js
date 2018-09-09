@@ -1,5 +1,5 @@
-"use strict"
-let sendingData = function () {
+let sendData = function () {
+    "use strict"
     let registrationForm = $('#registrationForm')
     function toJSONstring(form) {
         let resultObj = {}
@@ -47,4 +47,4 @@ let sendingData = function () {
     })
 }
 
-export default sendingData
+export default sendData
