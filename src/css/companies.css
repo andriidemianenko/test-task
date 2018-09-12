@@ -6,17 +6,15 @@
 }
 .list-group {
     max-height: 300px;
+    height: 300px;
     margin-bottom: 10px;
     overflow:scroll;
     -webkit-overflow-scrolling: touch
 }
-#allCompanies {
-    height: 300px;
-}
 .partners-container {
     display: none;
 }
-.partners-container #partners {
+.partners-container .list-group {
     height : 300px;
 }
 

@@ -8,6 +8,7 @@ let fieldValidation = function (form) {
         message.textContent = errorMessage
         message.className = 'error-message'
         element.parent().append(message)
+        isValid = false
     }
 
     function reset(element) {
@@ -22,10 +23,8 @@ let fieldValidation = function (form) {
         reset(element)
         if (!element.val()) {
             validationError(element, "The field is empty")
-            isValid = false
         } else if (!regExp.test(element.val())) {
             validationError(element, message)
-            isValid = false
         }
     }
 
