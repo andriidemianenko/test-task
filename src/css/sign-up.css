@@ -4,3 +4,6 @@
 .card-body {
     background-color: #eee;
 }    
+.error-message {
+    color : red;
+}
